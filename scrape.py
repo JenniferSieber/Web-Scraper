@@ -4,7 +4,7 @@ import json;
 
 
 def fetch_books(page_num):
-    url = f"https://books.toscrape.com/catalogue/page-{page_num}.html";
+    url = f'https://books.toscrape.com/catalogue/page-{page_num}.html';
     response = requests.get(url);
     soup = BeautifulSoup(response.text, 'html.parser');
     books = [];
@@ -32,7 +32,7 @@ def fetch_books(page_num):
 def main():
     # Pagination
     all_books = [];
-    max_pages = 10;
+    max_pages = 50;
     for current_page in range(1, max_pages + 1):
         books_on_page = fetch_books(current_page);
         all_books.extend(books_on_page);
