@@ -30,12 +30,12 @@ const scrape = async () => {
         };
       });
     });
-
     allBooks.push(...books);
     console.log(`Books on page ${currentPage}: `, books);
     currentPage++;
   }
 
+  
   fs.writeFileSync('books.json', JSON.stringify(allBooks, null, 2));
   console.log('Data saved to books.json');
   await browser.close();
